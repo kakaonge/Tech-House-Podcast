@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tech house | official podcast</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Satoshi', 'sans-serif'] },
+                    colors: {
+                        micRed: "#FF2E2E",
+                        micDark: "#050505"
+                    },
+                    animation: {
+                        'aurora': 'aurora 15s infinite linear',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="min-h-screen">
+    <div class="aurora-bg"></div>
+    <div id="app" class="min-h-screen w-full flex flex-col p-4 md:p-8 pb-32 max-w-[1400px] mx-auto">

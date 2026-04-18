@@ -1,0 +1,62 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<main id="content" class="flex-1 relative z-10 w-full mb-16">
+    <div class="max-w-4xl mx-auto view-transition px-4 md:px-0">
+        <div class="card rounded-[40px] p-6 md:p-16 relative overflow-hidden">
+            <div class="absolute -top-24 -right-24 w-64 h-64 bg-micRed/20 blur-[100px] rounded-full"></div>
+            <div class="relative z-10">
+                <span class="text-micRed font-mono text-[10px] tracking-[0.3em] mb-4 block">Communication Portal</span>
+                <h1 class="text-4xl md:text-6xl font-black tracking-tighter mb-8 text-white">Get in Touch</h1>
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-6" action="/contact" method="POST">
+                    <% if (locals.submitted) { %>
+                    <div class="col-span-1 md:col-span-2 bg-green-500/10 border border-green-500/30 rounded-2xl p-4 text-green-400 text-sm font-semibold flex items-center gap-2">
+                        <i data-lucide="check-circle" class="w-5 h-5"></i> Message sent! We'll get back to you soon.
+                    </div>
+                    <% } %>
+                    <div class="flex flex-col gap-2">
+                        <label class="text-[10px] tracking-widest text-gray-500 font-bold ml-2">Your Name</label>
+                        <input type="text" name="name" placeholder="Your Name" class="bg-white/5 border border-white/10 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-micRed transition-all">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="text-[10px] tracking-widest text-gray-500 font-bold ml-2">Email Address</label>
+                        <input type="email" name="email" placeholder="Email" class="bg-white/5 border border-white/10 rounded-2xl py-4 px-6 text-white focus:outline-none focus:border-micRed transition-all">
+                    </div>
+                    <div class="col-span-1 md:col-span-2 flex flex-col gap-2">
+                        <label class="text-[10px] tracking-widest text-gray-500 font-bold ml-2">Message</label>
+                        <textarea name="message" placeholder="Speak your mind..." rows="4" class="bg-white/5 border border-white/10 rounded-3xl py-4 px-6 text-white focus:outline-none focus:border-micRed transition-all resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="col-span-1 md:col-span-2 w-full bg-white text-black font-black py-5 rounded-2xl flex items-center justify-center gap-3 hover:bg-micRed hover:text-white transition-all transform hover:scale-[1.02]">
+                        <i data-lucide="send" class="w-5 h-5"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            <div class="card p-6 rounded-[24px] text-center">
+                <i data-lucide="mail" class="mx-auto mb-3 text-micRed w-6 h-6"></i>
+                <h4 class="font-bold text-xs text-white">General</h4>
+                <p class="text-[10px] text-gray-500">techhousepodcast@gmail.com</p>
+            </div>
+            <div class="card p-6 rounded-[24px] text-center">
+                <i data-lucide="briefcase" class="mx-auto mb-3 text-micRed w-6 h-6"></i>
+                <h4 class="font-bold text-xs text-white">Partners</h4>
+                <p class="text-[10px] text-gray-500">techhousepodcast@gmail.com</p>
+            </div>
+            <div class="card p-6 rounded-[24px] text-center">
+                <i data-lucide="map-pin" class="mx-auto mb-3 text-micRed w-6 h-6"></i>
+                <h4 class="font-bold text-xs text-white">Location</h4>
+                <p class="text-[10px] text-gray-500">Nairobi, KE</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('partials/footer') %>
+</div> <!-- close #app -->
+<%- include('partials/player') %>
+<%- include('partials/dock') %>
+
+<script src="/js/main.js"></script>
+</body>
+</html>
