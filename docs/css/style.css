@@ -1,0 +1,93 @@
+body { 
+    background: #030303; 
+    color: white; 
+    overflow-x: hidden; 
+    font-size: 1rem; 
+    scroll-behavior: smooth; 
+}
+
+/* Custom Colorful Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #FF2E2E, #FF8A00, #E52E71);
+    border-radius: 10px;
+    border: 3px solid #0a0a0a;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #FF5E5E, #FFAA33, #FF4B8B);
+}
+
+/* Liquid Glass Effect */
+.liquid-glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6);
+}
+
+.aurora-bg {
+    position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 46, 46, 0.1), transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(100, 100, 100, 0.1), transparent 40%);
+    filter: blur(80px); z-index: -1; animation: aurora 25s infinite linear;
+}
+
+.card {
+    background: rgba(15, 15, 15, 0.7);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dock-container {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 8px; padding: 10px 14px;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    z-index: 100;
+    max-width: 95vw;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+}
+.dock-container::-webkit-scrollbar {
+    display: none; /* Chrome */
+}
+
+.dock-btn { 
+    width: 48px; height: 48px; 
+    border-radius: 14px; 
+    display: flex; align-items: center; justify-content: center; 
+    color: #666; transition: all 0.2s; cursor: pointer; 
+    flex-shrink: 0;
+}
+@media (min-width: 768px) { 
+    .dock-btn { width: 52px; height: 52px; } 
+    .dock-container { gap: 10px; padding: 12px 16px; overflow-x: visible; }
+}
+
+.dock-btn:hover { background: rgba(255, 255, 255, 0.1); color: white; transform: translateY(-4px); }
+.dock-btn.active { background: white; color: black; box-shadow: 0 0 25px rgba(255,255,255,0.2); }
+
+.bar { width: 4px; background: white; border-radius: 4px; animation: equalize 1s infinite; }
+@keyframes equalize { 0%, 100% { height: 8px; } 50% { height: 20px; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes aurora { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.view-transition { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+input, textarea { caret-color: #FF2E2E; }
+
+/* Mobile layout fixes */
+@media (max-width: 767px) {
+    h1.text-4xl { font-size: 2.5rem; line-height: 1.1; }
+    h2.text-3xl { font-size: 2rem; }
+    .dock-container { bottom: 10px; border-radius: 20px; }
+    .card { padding: 1.5rem; }
+}
